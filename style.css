@@ -1,86 +1,91 @@
-.allTabs{
-  text-align:center;}
-.tab {
-  display:inline-block;
+body{
+  background-color: #F1F1F1;
 }
-.tab label {
-  background: white;
-  padding: 10px;
-  position: relative;
-}
-.tab [type=radio] {
-  display: none;
-}
-[type=radio]:checked ~ label {
-  background: white;
-  z-index: 2;
-}
-[type=radio]:checked ~ label ~ .content {
-  z-index: 1;
-}
-.link-tab a {
-      color: black;
-      font-family: Cuprum, Verdana, Arial, sans-serif;
-      font-size: 1.5em;
-      text-decoration: none;
-      border-bottom: 4px solid #DADEDE;
-      }
-.link-tab a:hover {
-      border-bottom: 4px solid blue;
-      }
 
-body {
-    margin: 10px;
+.nav-main {
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: #FFF;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
 }
-#wrapper{
-  margin-top: 0px;
-  text-align: left;
-}
-h1 {
-  padding-top: 160px;
-  padding-bottom: 160px;
-  background-image: url("http://gdurl.com/ZYu4");
+
+.btn-toggle-nav {
+  width: 60px;
+  height: 100%;
+  background-color: #F98F39;
+  background-image: url("img/menu_icon.png");/* random menu png off google */
   background-repeat: no-repeat;
-  background-size: 100% 110%;
-  background-color: #DADEDE;
-  border-radius: 4px;
-	  font-family: Cuprum, Verdana, Arial, sans-serif;
-	  font-size: 4em;
-	  font-weight: 600;
-  text-align: center;
-  color: #0000FF;
-  line-height: 70px;
+  background-size: 100%;
+  background-position: center;
+  cursor: pointer;
 }
-h2 {
-  border-radius: 4px;
-  padding-right: 10px;
-  padding-left: 10px;
-  font-family: Cuprum, Verdana, Arial, sans-serif;
-  font-size: 2em;
-	  font-weight: 600;
-  background-color: blue;
-  background-size: contain;
-  color: white;
-  display: inline-block;
-  margin-top: 10px;
-}
-h3{
-  margin-top: 10px;
-  margin-bottom: 5px;
-  font-family: Cuprum, Verdana, Arial, sans-serif;
-  font-size: 1.5em;
-	font-weight: 500;
-}
-.lesson{
-  background-color: #DADEDE;
-  background-size: cover;
-  border-radius: 4px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
 
+.btn-toggle-nav:hover {
+  opacity: 0.5;
 }
-.description{
-  font-family: Cuprum, Verdana, Arial, sans-serif;
-  font-size: 1em;
+
+.nav-main ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+}
+
+.nav-main ul li {
+  list-style: none;
+  line-height: 60px;
+}
+
+.nav-main ul li a {
+  display: block;
+  height: 100%;
+  padding: 0 10px; /*top & bottom, left & right */
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #111;
+  font-family: arial;
+  font-size: 10px;
+}
+
+.nav-sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  padding: 0 5px; /*so text doesn't bleed over when side bar is closed */
+  height: calc(100vh - 60px);
+  background-color: #1b1b1b;
+  z-index: 1000; /* "top layer" */
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-sidebar ul {
+  padding-top: 15px;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.nav-sidebar ul li {
+  line-height: 60px;
+  list-style: none;
+}
+
+.nav-sidebar ul li span, .nav-sidebar ul li a {
+  display: block;
+  height: 60px;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #FFF;
+  font-family: arial;
+  font-size: 16px;
+  white-space: nowrap; /*forces text outside container, which is cut off by ul overflow styling*/
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-sidebar ul li a: hover {
+  background-color: #222;
 }

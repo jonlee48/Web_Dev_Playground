@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+  <!--  Meta  -->
+ <meta charset="UTF-8" /> <!-- allow all characters -->
+  <title>Shifty-eyes</title> <!--Appears in title bar-->
+
+  <!--  Styles  -->
+  <link rel="stylesheet" href="./resetstyle.css">
+  <link rel="stylesheet" href="./eyes.css">
+</head>
+<body>
+
+    <div class="eye_Div">
+      <div class="eyes">
+
+        <div class="eye">
+          <div class="ball">
+
+          </div>
+        </div>
+
+        <div class="eye">
+          <div class="ball">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var balls = document.getElementsByClassName("ball");
+      var eye = document.getElementsByClassName("eye");
+      var mouseX;
+      var mouseY;
+      document.onscroll = moveEyes;
+      document.onmousemove = moveEyes;
+
+      function moveEyes(event) {
+        if(event.clientX != null)
+        {
+          mouseX = event.clientX;
+          mouseY = event.clientY;
+        }
+        console.log(mouseY);
+        for(var i = 0; i < 2; i++) {
+          var rect = balls[i].getBoundingClientRect();
+          var rectEye = eye[i].getBoundingClientRect();
+
+          //Eye Y scaling
+          var eyeCenterY = rectEye.top + eye[i].offsetHeight/2;
+          if(mouseY < eyeCenterY) {
+            balls[i].style.top = mouseY * 50 / eyeCenterY + "%";
+          }
+          else if (mouseY >= eyeCenterY){
+            balls[i].style.top = 50 + (mouseY - eyeCenterY) * 50/ (window.innerHeight - eyeCenterY) + "%";
+          }
+
+
+          //Eye X scaling
+          var eyeCenterX = rectEye.left + eye[i].offsetWidth/2;
+          if(mouseX < eyeCenterX) {
+            balls[i].style.left = mouseX * 50 / eyeCenterX + "%";
+          }
+          else {
+            balls[i].style.left = 50 + (mouseX- eyeCenterX) * 50/ (window.innerWidth - eyeCenterX) + "%";
+          }
+
+        }
+      }
+
+    </script>
+</body>
+</html>
