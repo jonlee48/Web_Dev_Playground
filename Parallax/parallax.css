@@ -1,0 +1,59 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+  height: 100vh;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax-wrapper {
+  width: 100vw;
+  height: 80vh;
+  padding-top: 20vh;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+
+.parallax-wrapper::before {
+  content: "";
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-image: url("https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  transform: translateZ(-1px) scale(2);
+}
+
+.regular-wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 10vh;
+  background-image: url("https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  z-index: 2;
+  position: relative;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 50px;
+  width: 80%;
+  background: #aaa;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+}
